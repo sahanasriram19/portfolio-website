@@ -332,15 +332,32 @@ nav .wrap{
 .gallery-caption .yr{font-size:0.75rem;color:var(--text-soft);}
 .gallery-item.hide{display:none;}
 
-/* ---------- Clubs & co-curriculars (plain big text) ---------- */
-.club-list{display:flex;flex-wrap:wrap;gap:10px 56px;align-items:baseline;}
-.club-list span{
-  font-family:'Space Grotesk',sans-serif;font-weight:700;
-  font-size:clamp(2.4rem,7vw,5rem);line-height:1.1;letter-spacing:-0.02em;
-  color:var(--text);transition:color 0.25s ease;
+/* ---------- Clubs & co-curriculars (staggered, slanted big text) ---------- */
+.club-list{
+  display:flex;flex-direction:column;gap:6px;
+  padding:10px 0 30px;
 }
+.club-list span{
+  display:block;width:fit-content;
+  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:clamp(2.6rem,8vw,6rem);line-height:1.05;letter-spacing:-0.02em;
+  color:var(--text);
+  transition:color 0.25s ease, transform 0.25s ease;
+}
+/* 1: left, top */
+.club-list span:nth-child(1){align-self:flex-start;margin-left:2%;transform:rotate(-4deg);}
+/* 2: right, a level below */
+.club-list span:nth-child(2){align-self:flex-end;margin-right:6%;transform:rotate(3deg);}
+/* 3: left, below that (indented a little more) */
+.club-list span:nth-child(3){align-self:flex-start;margin-left:10%;transform:rotate(-3deg);}
+/* 4: right, bottom */
+.club-list span:nth-child(4){align-self:flex-end;margin-right:2%;transform:rotate(4deg);}
 .club-list span:hover{
   background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+}
+@media (max-width:560px){
+  .club-list span:nth-child(3){margin-left:4%;}
+  .club-list span:nth-child(2){margin-right:2%;}
 }
 
 /* ---------- Contact / footer CTA ---------- */
