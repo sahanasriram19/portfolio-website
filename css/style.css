@@ -330,6 +330,32 @@ nav .wrap{
 .gallery-caption .yr{font-size:0.75rem;color:var(--text-soft);}
 .gallery-item.hide{display:none;}
 
+/* ---------- Clubs & co-curriculars ---------- */
+.club-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.club-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:24px 22px;
+  transition:transform 0.25s ease, border-color 0.25s ease;
+}
+.club-card:hover{transform:translateY(-4px);border-color:var(--purple-soft);}
+.club-badge{
+  width:46px;height:46px;border-radius:12px;
+  background:var(--grad);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:0.95rem;
+  margin-bottom:16px;
+}
+.club-card h3{font-size:1.05rem;font-weight:700;margin-bottom:8px;}
+.club-card p{font-size:0.85rem;color:var(--text-soft);line-height:1.6;}
+@media (max-width:900px){
+  .club-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:560px){
+  .club-grid{grid-template-columns:1fr;}
+}
+
 /* ---------- Contact / footer CTA ---------- */
 .contact{
   text-align:center;padding:90px 0 100px;
