@@ -338,7 +338,7 @@ nav .wrap{
   font-family:'Space Grotesk',sans-serif;font-weight:700;
   font-size:clamp(2.4rem,7vw,5rem);line-height:1.1;letter-spacing:-0.02em;
   color:var(--text);transition:color 0.25s ease;
-  padding-left:4px;
+  padding-left:6px;
 }
 .club-list span:hover{
   background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
