@@ -333,7 +333,7 @@ nav .wrap{
 .gallery-item.hide{display:none;}
 
 /* ---------- Clubs & co-curriculars (plain big text) ---------- */
-.club-list{display:flex;flex-wrap:wrap;gap:10px 56px;align-items:baseline;}
+.club-list{display:flex;flex-wrap:wrap;gap:10px 56px;align-items:baseline;justify-content:center;}
 .club-list span{
   font-family:'Space Grotesk',sans-serif;font-weight:700;
   font-size:clamp(2.4rem,7vw,5rem);line-height:1.1;letter-spacing:-0.02em;
