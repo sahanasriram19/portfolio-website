@@ -235,6 +235,8 @@ nav .wrap{
 .thumb-sm.mt{background:linear-gradient(135deg,#312E81 0%,#3B82F6 100%);}
 .thumb-sm.sv{background:linear-gradient(135deg,#312E52 0%,#8B5CF6 100%);}
 .thumb-sm.mc{background:linear-gradient(135deg,#3F1220 0%,#B91C3C 100%);}
+.project-thumb.n4,.thumb-sm.n4{background:linear-gradient(135deg,#134E4A 0%,#14B8A6 100%);}
+.project-thumb.n5,.thumb-sm.n5{background:linear-gradient(135deg,#78350F 0%,#F59E0B 100%);}
 .project-thumb svg{width:44%;height:44%;opacity:0.85;}
 .project-card .body{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1;}
 .project-card h3{font-size:1.05rem;font-weight:700;margin-bottom:8px;}
@@ -330,30 +332,15 @@ nav .wrap{
 .gallery-caption .yr{font-size:0.75rem;color:var(--text-soft);}
 .gallery-item.hide{display:none;}
 
-/* ---------- Clubs & co-curriculars ---------- */
-.club-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
-.club-card{
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:24px 22px;
-  transition:transform 0.25s ease, border-color 0.25s ease;
+/* ---------- Clubs & co-curriculars (plain big text) ---------- */
+.club-list{display:flex;flex-wrap:wrap;gap:10px 56px;align-items:baseline;}
+.club-list span{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:clamp(2.4rem,7vw,5rem);line-height:1.1;letter-spacing:-0.02em;
+  color:var(--text);transition:color 0.25s ease;
 }
-.club-card:hover{transform:translateY(-4px);border-color:var(--purple-soft);}
-.club-badge{
-  width:46px;height:46px;border-radius:12px;
-  background:var(--grad);color:#fff;
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:0.95rem;
-  margin-bottom:16px;
-}
-.club-card h3{font-size:1.05rem;font-weight:700;margin-bottom:8px;}
-.club-card p{font-size:0.85rem;color:var(--text-soft);line-height:1.6;}
-@media (max-width:900px){
-  .club-grid{grid-template-columns:1fr 1fr;}
-}
-@media (max-width:560px){
-  .club-grid{grid-template-columns:1fr;}
+.club-list span:hover{
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
 }
 
 /* ---------- Contact / footer CTA ---------- */
