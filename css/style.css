@@ -134,13 +134,23 @@ nav .wrap{
   display: flex;
   align-items: center;
   text-decoration: none;
+  flex-shrink: 0;
 }
 
 .logo-icon {
-  width: 42px;
-  height: 42px;
+  width: 58px;
+  height: 58px;
   object-fit: contain;
-  border-radius: 8px;
+  display: block;
+  background: transparent;
+  border-radius: 0;
+}
+
+@media (max-width: 768px) {
+  .logo-icon {
+    width: 48px;
+    height: 48px;
+  }
 }
 
 /* ---------- Buttons ---------- */
