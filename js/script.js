@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   /* ---------- Active nav link (by current page) ---------- */
   const navAnchors = document.querySelectorAll('.navlinks a');
-  const currentFile = window.location.pathname.split('/').pop() || 'index.html';
+  const currentFile = document.body.dataset.parent || window.location.pathname.split('/').pop() || 'index.html';
   navAnchors.forEach(a => {
     const href = a.getAttribute('href');
     const targetFile = href.split('#')[0] || 'index.html';
@@ -46,6 +46,47 @@ document.addEventListener('DOMContentLoaded', async () => {
       a.classList.add('active');
     }
   });
+
+  /* ---------- Screen lightbox (case study page) ---------- */
+  const lightbox = document.getElementById('lightbox');
+  if (lightbox) {
+    const lbImg = document.getElementById('lightboxImg');
+    const lbCap = document.getElementById('lightboxCap');
+    const lbClose = lightbox.querySelector('.lightbox-close');
+    let lastTrigger = null;
+
+    const openLb = (btn) => {
+      lastTrigger = btn;
+      lbImg.src = btn.dataset.lightbox;
+      lbImg.alt = btn.querySelector('img') ? btn.querySelector('img').alt : '';
+      lbCap.textContent = btn.dataset.caption || '';
+      lightbox.classList.remove('zoomed');
+      lightbox.hidden = false;
+      document.body.style.overflow = 'hidden';
+      lbClose.focus();
+    };
+    const closeLb = () => {
+      lightbox.hidden = true;
+      lbImg.removeAttribute('src');
+      document.body.style.overflow = '';
+      if (lastTrigger) lastTrigger.focus();
+    };
+
+    document.querySelectorAll('[data-lightbox]').forEach(btn => {
+      btn.addEventListener('click', () => openLb(btn));
+    });
+    lbImg.addEventListener('click', (e) => {
+      e.stopPropagation();
+      lightbox.classList.toggle('zoomed');
+    });
+    lbClose.addEventListener('click', closeLb);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target.classList.contains('lightbox-stage')) closeLb();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.hidden && e.key === 'Escape') closeLb();
+    });
+  }
 
   /* ---------- Scroll reveal ---------- */
   const revealEls = document.querySelectorAll('.reveal');
