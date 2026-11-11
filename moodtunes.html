@@ -6,7 +6,7 @@
 <title>MoodTunes — Case Study</title>
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="manifest" href="/manifest.json">
-<meta name="description" content="MoodTunes: a full-stack music mood journal with Spotify and Last.fm. Journal, playlists, sessions and listening analytics.">
+<meta name="description" content="MoodTunes: a music mood journal built with Node.js, MySQL, Spotify and Last.fm.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
@@ -15,107 +15,69 @@
 
 <div id="navbar-placeholder"></div>
 
-<section class="cs-hero">
+<header class="cs-hero">
   <div class="wrap cs-hero-grid">
     <div>
       <a href="work.html" class="cs-back">&larr; All projects</a>
-      <div class="cs-eyebrow">Full-stack project</div>
-      <h1>Mood<span class="grad-text">Tunes</span></h1>
-      <p class="cs-lede">A music mood journal that connects to your Spotify account. Log songs by how they make you feel, build mood-based playlists, run listening sessions and look back on your listening through stats and monthly recaps.</p>
-
-      <dl class="cs-meta"><div><dt>Type</dt><dd>Personal project</dd></div><div><dt>Stack</dt><dd>Node.js, Express, MySQL</dd></div><div><dt>Integrations</dt><dd>Spotify, Last.fm</dd></div><div><dt>Status</dt><dd>Live</dd></div></dl>
-
+      <h1>MoodTunes</h1>
+      <p class="cs-lede">A music journal that connects to Spotify. You pick a mood, log a song with a note about how you feel, and the app builds playlists and listening sessions from what you have logged.</p>
+      <ul class="cs-facts"><li><span>Type</span>Personal project</li><li><span>Built with</span>Node.js, Express, MySQL, vanilla JS</li><li><span>APIs</span>Spotify, Last.fm</li><li><span>Login</span>JWT and bcrypt</li></ul>
       <div class="btn-row">
         <a href="https://moodtunes-main.vercel.app" target="_blank" rel="noopener" class="btn btn-primary">Live demo &#8599;</a>
         <a href="https://github.com/sahanasriram19/moodtunes" target="_blank" rel="noopener" class="btn btn-ghost">GitHub &#8599;</a>
       </div>
     </div>
-
     <div class="cs-hero-visual">
-      <img src="images/moodtunes-1.jpg" width="1600" height="959" alt="MoodTunes journal page with mood buttons, song search and recently logged songs">
+      <img src="images/moodtunes-1.jpg" width="1600" height="959" alt="MoodTunes journal page with mood buttons, song search and logged songs">
     </div>
+  </div>
+</header>
+
+<section class="cs-section reveal">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <div class="cs-steps"><div><h3>Log a song</h3><p>Pick a mood, search Spotify and save the song with a short note.</p></div><div><h3>Get playlists</h3><p>Songs are grouped by mood. One click syncs a mood to a playlist in your Spotify account.</p></div><div><h3>Start a session</h3><p>Picks come from the genres of the artists you have logged for that mood. Premium accounts get them queued, Free accounts get a playlist.</p></div><div><h3>Look back</h3><p>History with filters, plus a monthly recap you can save as an image.</p></div></div>
   </div>
 </section>
 
-<section class="section reveal cs-loop">
+<section class="cs-section reveal">
+  <div class="wrap cs-split">
+    <h2>What is in it</h2>
+    <div class="cs-list"><div class="cs-item"><h3>Journal</h3><p>Seven moods, song search, personal notes, and play counts that sync from Spotify when you come back.</p></div><div class="cs-item"><h3>Playlists and sessions</h3><p>Mood playlists, Spotify sync, and sessions with recommendations from Spotify genres. Last.fm tags fill in when Spotify has none.</p></div><div class="cs-item"><h3>Stats and reminders</h3><p>A history timeline, a stats page, the monthly recap and an optional daily check-in notification.</p></div><div class="cs-item"><h3>Backend</h3><p>An Express API with a MySQL database, Spotify OAuth, and accounts protected with JWT and bcrypt.</p></div></div>
+  </div>
   <div class="wrap">
-    <div class="section-head">
-      <div>
-        <h2>From mood to insight</h2>
-        <p class="section-sub">The app follows one loop: feel something, log it, listen again, then look back at the pattern.</p>
-      </div>
-    </div>
-
-    <div class="cs-flow"><div class="cs-step"><h3>Choose a mood</h3><p>Pick happy, sad, hype, heartbreak, nostalgic, focused or chill, then search Spotify and log a song with a note.</p></div><div class="cs-step"><h3>Build playlists</h3><p>Songs group into mood playlists that sync to a real playlist in your Spotify account in one click.</p></div><div class="cs-step"><h3>Run a session</h3><p>Start a listening session. Genre-based picks from Spotify and Last.fm are queued, or saved as a playlist on Free accounts.</p></div><div class="cs-step"><h3>Explore trends</h3><p>History, filters and a shareable monthly recap show your top mood, top songs and busiest day.</p></div></div>
-
-    <p class="cs-nav-note">Under the hood: Spotify OAuth and Last.fm feed an Express API, which stores logs and sessions in MySQL and serves a vanilla JavaScript interface.</p>
+    <p class="cs-closing">I built this one on my own, from the database to the Spotify login.</p>
   </div>
 </section>
 
-<section class="section reveal cs-notes">
+<section class="cs-section reveal" id="screens">
   <div class="wrap">
-    <div class="section-head">
-      <div>
-        <h2>What went into it</h2>
-      </div>
-    </div>
-
-    <div class="cs-notes-grid"><div class="cs-note"><h3>Mood journal</h3><p>Log Spotify songs under moods, add personal reflections, and sync recently played tracks and play counts.</p></div><div class="cs-note"><h3>Playlists and sessions</h3><p>Build mood playlists, sync them to Spotify, and run sessions with genre-based picks informed by Spotify and Last.fm.</p></div><div class="cs-note"><h3>Insights and reminders</h3><p>Session history, listening filters, shareable monthly recaps and optional daily push reminders.</p></div><div class="cs-note"><h3>Full-stack build</h3><p>Vanilla JavaScript, HTML/CSS, Node.js and Express, MySQL, Spotify OAuth, JWT and bcrypt, plus external music APIs.</p></div></div>
-
-    <div class="cs-takeaway">
-      <span class="cs-takeaway-label">Takeaway</span>
-      <p>An independently built music app combining personal storytelling, secure accounts, live APIs and useful listening data.</p>
-    </div>
-
-  </div>
-</section>
-
-<section class="section reveal cs-screens" id="screens">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <h2>Interface snapshots</h2>
-        <p class="section-sub">Select a screenshot to open it, then select it again to switch between fit-to-screen and full size.</p>
-      </div>
-    </div>
-
+    <h2>Screenshots</h2>
+    <p class="cs-hint">Click one to enlarge it.</p>
     <div class="cs-boards three">
       <figure class="cs-board">
-        <button type="button" class="cs-board-btn" data-lightbox="images/moodtunes-1.jpg" data-caption="The journal" aria-label="Open screenshot: The journal">
-          <img src="images/moodtunes-1.jpg" width="1600" height="959" loading="lazy" alt="MoodTunes journal page with mood buttons, song search and recently logged songs">
-          <span class="cs-zoom" aria-hidden="true">Enlarge</span>
+        <button type="button" class="cs-board-btn" data-lightbox="images/moodtunes-1.jpg" data-caption="Journal" aria-label="Open screenshot: Journal">
+          <img src="images/moodtunes-1.jpg" width="1600" height="959" loading="lazy" alt="MoodTunes journal page with mood buttons, song search and logged songs">
         </button>
-        <figcaption>
-          <h3>The journal</h3>
-          <p>Mood picker, Spotify search, a now-playing card and the day’s logged songs with play counts.</p>
-        </figcaption>
+        <figcaption><strong>Journal.</strong> Pick a mood, search for a song, and see what you logged today.</figcaption>
       </figure>
 
       <figure class="cs-board">
-        <button type="button" class="cs-board-btn" data-lightbox="images/moodtunes-2.jpg" data-caption="Listening stats" aria-label="Open screenshot: Listening stats">
-          <img src="images/moodtunes-2.jpg" width="1600" height="955" loading="lazy" alt="MoodTunes stats page with mood breakdown bars, listening times and a calendar">
-          <span class="cs-zoom" aria-hidden="true">Enlarge</span>
+        <button type="button" class="cs-board-btn" data-lightbox="images/moodtunes-2.jpg" data-caption="Stats" aria-label="Open screenshot: Stats">
+          <img src="images/moodtunes-2.jpg" width="1600" height="955" loading="lazy" alt="MoodTunes stats page with mood bars and a calendar">
         </button>
-        <figcaption>
-          <h3>Listening stats</h3>
-          <p>Mood breakdown, when you listen, a monthly calendar and your most-played songs.</p>
-        </figcaption>
+        <figcaption><strong>Stats.</strong> Mood breakdown, listening times, a monthly calendar and most played songs.</figcaption>
       </figure>
 
       <figure class="cs-board">
-        <button type="button" class="cs-board-btn" data-lightbox="images/moodtunes-3.jpg" data-caption="Mood playlists" aria-label="Open screenshot: Mood playlists">
-          <img src="images/moodtunes-3.jpg" width="1600" height="962" loading="lazy" alt="MoodTunes playlists page with album-art mosaics for each mood">
-          <span class="cs-zoom" aria-hidden="true">Enlarge</span>
+        <button type="button" class="cs-board-btn" data-lightbox="images/moodtunes-3.jpg" data-caption="Playlists" aria-label="Open screenshot: Playlists">
+          <img src="images/moodtunes-3.jpg" width="1600" height="962" loading="lazy" alt="MoodTunes playlists page with album art for each mood">
         </button>
-        <figcaption>
-          <h3>Mood playlists</h3>
-          <p>Songs grouped by mood into playlist covers, ready to sync to Spotify.</p>
-        </figcaption>
+        <figcaption><strong>Playlists.</strong> Each mood becomes a playlist that can be synced to Spotify.</figcaption>
       </figure>
     </div>
-
-    <div class="btn-row" style="margin-top:40px;">
-      <a href="work.html" class="btn btn-ghost">&larr; Back to all projects</a>
+    <div class="btn-row cs-end">
+      <a href="work.html" class="btn btn-ghost">&larr; All projects</a>
       <a href="mailto:sahanasriram19@gmail.com" class="btn btn-primary">Get in touch</a>
     </div>
   </div>

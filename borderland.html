@@ -6,7 +6,7 @@
 <title>Borderland — Case Study</title>
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="manifest" href="/manifest.json">
-<meta name="description" content="Borderland: an Alice in Borderland themed wellness challenge game with progression, a REST API and team battles.">
+<meta name="description" content="Borderland: an Alice in Borderland themed wellness game with a REST API and team matches.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
@@ -15,96 +15,63 @@
 
 <div id="navbar-placeholder"></div>
 
-<section class="cs-hero">
+<header class="cs-hero">
   <div class="wrap cs-hero-grid">
     <div>
       <a href="work.html" class="cs-back">&larr; All projects</a>
-      <div class="cs-eyebrow">Backend and game design project</div>
-      <h1><span class="grad-text">Borderland</span></h1>
-      <p class="cs-lede">A wellness challenge game inspired by Alice in Borderland. Real-life challenges earn points, points unlock characters and shop items, and groups compete in matches decided by their combined inventory power.</p>
-
-      <dl class="cs-meta"><div><dt>Type</dt><dd>Coursework project</dd></div><div><dt>Stack</dt><dd>Node.js, Express, MySQL</dd></div><div><dt>Focus</dt><dd>REST API, game logic</dd></div><div><dt>Status</dt><dd>Live</dd></div></dl>
-
+      <h1>Borderland</h1>
+      <p class="cs-lede">A wellness challenge game themed on Alice in Borderland. You do real challenges, earn points, unlock characters and buy items, and groups compete in matches using the items they own.</p>
+      <ul class="cs-facts"><li><span>Type</span>Coursework project</li><li><span>Built with</span>Node.js, Express, MySQL</li><li><span>Focus</span>REST API and game rules</li><li><span>Login</span>JWT and bcrypt</li></ul>
       <div class="btn-row">
         <a href="https://alice-in-borderland-bed.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary">Live demo &#8599;</a>
         <a href="https://github.com/sahanasriram19/alice-in-borderland" target="_blank" rel="noopener" class="btn btn-ghost">GitHub &#8599;</a>
       </div>
     </div>
-
     <div class="cs-hero-visual">
-      <img src="images/borderland-1.jpg" width="1600" height="900" alt="Borderland character profiles page with a character list and stat bars">
+      <img src="images/borderland-1.jpg" width="1600" height="900" alt="Borderland character profiles page with stat bars">
     </div>
+  </div>
+</header>
+
+<section class="cs-section reveal">
+  <div class="wrap">
+    <h2>The game loop</h2>
+    <div class="cs-steps five"><div><h3>Challenge</h3><p>Pick a wellness challenge, like sleeping 7 hours, and complete it.</p></div><div><h3>Points</h3><p>Completed challenges are the only way to earn points.</p></div><div><h3>Characters</h3><p>Nine characters, Chota to Mira, unlock at set point totals.</p></div><div><h3>Shop</h3><p>Spend points on items. Each item has a power value.</p></div><div><h3>Matches</h3><p>Twelve groups compete, and the one with more combined item power wins.</p></div></div>
+    <p class="cs-aside">A match is scored in four steps: fetch the match and both groups, work out each group’s power, compare them, then save the result.</p>
   </div>
 </section>
 
-<section class="section reveal cs-loop">
+<section class="cs-section reveal">
+  <div class="wrap cs-split">
+    <h2>What is in it</h2>
+    <div class="cs-list"><div class="cs-item"><h3>The theme</h3><p>Challenges, rewards and competition, styled after the show.</p></div><div class="cs-item"><h3>The API</h3><p>Separate routes and models for users, challenges, completions, profiles, groups, matches, the shop, inventory and the leaderboard.</p></div><div class="cs-item"><h3>Rules and security</h3><p>Passwords are hashed with bcrypt and routes are protected with JWT. Points only come from completed challenges.</p></div><div class="cs-item"><h3>Match logic</h3><p>Small middleware functions each do one job: work out team power, compare, record the result.</p></div></div>
+  </div>
   <div class="wrap">
-    <div class="section-head">
-      <div>
-        <h2>The game loop</h2>
-        <p class="section-sub">Points can only be earned through real-world challenges, and everything else in the game is built on them.</p>
-      </div>
-    </div>
-
-    <div class="cs-flow cs-flow-5"><div class="cs-step"><h3>Complete a challenge</h3><p>Pick a wellness challenge, such as getting 7 hours of sleep, and mark it done.</p></div><div class="cs-step"><h3>Earn points</h3><p>Verified completions award points. Nothing else in the game does.</p></div><div class="cs-step"><h3>Unlock characters</h3><p>Nine characters, from Chota to Mira, unlock at point thresholds.</p></div><div class="cs-step"><h3>Buy shop items</h3><p>Spend points on items that each carry a power value.</p></div><div class="cs-step"><h3>Compete in groups</h3><p>Twelve themed groups battle in matches scored by combined inventory power.</p></div></div>
-
-    <p class="cs-nav-note">Match scoring is a short pipeline: fetch the match and its groups, compute each side’s inventory power, compare the two, then resolve the match and save the outcome.</p>
+    <p class="cs-closing">The part I like most is that the scoring logic is split into pieces small enough to test.</p>
   </div>
 </section>
 
-<section class="section reveal cs-notes">
+<section class="cs-section reveal" id="screens">
   <div class="wrap">
-    <div class="section-head">
-      <div>
-        <h2>What went into it</h2>
-      </div>
-    </div>
-
-    <div class="cs-notes-grid"><div class="cs-note"><h3>Alice in Borderland theme</h3><p>A challenge-based game with competition and unlockable rewards, styled after the show.</p></div><div class="cs-note"><h3>REST API design</h3><p>Users, challenges, completions, profiles, groups, matches, shop, inventory and leaderboards each have their own routes and models.</p></div><div class="cs-note"><h3>Rules and security</h3><p>JWT and bcrypt protect accounts, and verified challenge completion is the only way to earn points.</p></div><div class="cs-note"><h3>Modular match logic</h3><p>Single-purpose middleware calculates team inventory strength, compares outcomes and records the result.</p></div></div>
-
-    <div class="cs-takeaway">
-      <span class="cs-takeaway-label">Takeaway</span>
-      <p>A structured game backend with clear progression, security, resource ownership and testable scoring logic.</p>
-    </div>
-
-  </div>
-</section>
-
-<section class="section reveal cs-screens" id="screens">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <h2>Interface snapshots</h2>
-        <p class="section-sub">Select a screenshot to open it, then select it again to switch between fit-to-screen and full size.</p>
-      </div>
-    </div>
-
+    <h2>Screenshots</h2>
+    <p class="cs-hint">Click one to enlarge it.</p>
     <div class="cs-boards">
       <figure class="cs-board">
         <button type="button" class="cs-board-btn" data-lightbox="images/borderland-1.jpg" data-caption="Character profiles" aria-label="Open screenshot: Character profiles">
-          <img src="images/borderland-1.jpg" width="1600" height="900" loading="lazy" alt="Borderland character profiles page with a character list and stat bars">
-          <span class="cs-zoom" aria-hidden="true">Enlarge</span>
+          <img src="images/borderland-1.jpg" width="1600" height="900" loading="lazy" alt="Borderland character profiles page with stat bars">
         </button>
-        <figcaption>
-          <h3>Character profiles</h3>
-          <p>A character roster with stats and a level progress panel, themed after the show.</p>
-        </figcaption>
+        <figcaption><strong>Character profiles.</strong> A roster of characters with stats and a level panel.</figcaption>
       </figure>
 
       <figure class="cs-board">
-        <button type="button" class="cs-board-btn" data-lightbox="images/borderland-2.jpg" data-caption="Player profile and shop" aria-label="Open screenshot: Player profile and shop">
-          <img src="images/borderland-2.jpg" width="1600" height="900" loading="lazy" alt="Borderland player profile beside a list of unlockable shop items">
-          <span class="cs-zoom" aria-hidden="true">Enlarge</span>
+        <button type="button" class="cs-board-btn" data-lightbox="images/borderland-2.jpg" data-caption="Profile and shop" aria-label="Open screenshot: Profile and shop">
+          <img src="images/borderland-2.jpg" width="1600" height="900" loading="lazy" alt="Borderland player profile beside the item shop">
         </button>
-        <figcaption>
-          <h3>Player profile and shop</h3>
-          <p>Your profile, current character and points, next to the item shop.</p>
-        </figcaption>
+        <figcaption><strong>Profile and shop.</strong> Your profile and points, next to the shop.</figcaption>
       </figure>
     </div>
-
-    <div class="btn-row" style="margin-top:40px;">
-      <a href="work.html" class="btn btn-ghost">&larr; Back to all projects</a>
+    <div class="btn-row cs-end">
+      <a href="work.html" class="btn btn-ghost">&larr; All projects</a>
       <a href="mailto:sahanasriram19@gmail.com" class="btn btn-primary">Get in touch</a>
     </div>
   </div>

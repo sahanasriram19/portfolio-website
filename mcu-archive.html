@@ -6,7 +6,7 @@
 <title>MCU Archive — Case Study</title>
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="manifest" href="/manifest.json">
-<meta name="description" content="MCU Archive: a cinematic Marvel data visualisation built with a custom canvas engine and live TMDB data.">
+<meta name="description" content="MCU Archive: an interactive Marvel mind map drawn on a canvas, using live TMDB data.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
@@ -15,107 +15,70 @@
 
 <div id="navbar-placeholder"></div>
 
-<section class="cs-hero">
+<header class="cs-hero">
   <div class="wrap cs-hero-grid">
     <div>
       <a href="work.html" class="cs-back">&larr; All projects</a>
-      <div class="cs-eyebrow">Data visualisation project</div>
-      <h1>MCU <span class="grad-text">Archive</span></h1>
-      <p class="cs-lede">An interactive, cinematic mind-map of the Marvel Cinematic Universe. Every film and series is a poster on a pannable, zoomable canvas, connected by glowing lines, with several ways to explore the timeline.</p>
-
-      <dl class="cs-meta"><div><dt>Type</dt><dd>Personal project</dd></div><div><dt>Stack</dt><dd>JavaScript, HTML5 Canvas</dd></div><div><dt>Data</dt><dd>TMDB API, custom JSON</dd></div><div><dt>Status</dt><dd>Live</dd></div></dl>
-
+      <h1>MCU Archive</h1>
+      <p class="cs-lede">An interactive map of the Marvel Cinematic Universe. Every film and series is a poster on a canvas you can pan, zoom and tilt, joined by glowing lines.</p>
+      <ul class="cs-facts"><li><span>Type</span>Personal project</li><li><span>Built with</span>JavaScript, HTML5 Canvas</li><li><span>Data</span>TMDB API and my own JSON files</li><li><span>Framework</span>None</li></ul>
       <div class="btn-row">
         <a href="https://mcu-archive.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary">Live demo &#8599;</a>
         <a href="https://github.com/sahanasriram19/mcu-archive" target="_blank" rel="noopener" class="btn btn-ghost">GitHub &#8599;</a>
       </div>
     </div>
-
     <div class="cs-hero-visual">
       <img src="images/mcu-1.jpg" width="1600" height="957" alt="MCU Archive landing screen with the Marvel logo on a starfield">
     </div>
   </div>
-</section>
+</header>
 
-<section class="section reveal cs-loop">
+<section class="cs-section reveal">
   <div class="wrap">
-    <div class="section-head">
-      <div>
-        <h2>From data to a navigable universe</h2>
-        <p class="section-sub">A small set of JSON files becomes a map you can fly through, in four steps.</p>
-      </div>
-    </div>
-
-    <div class="cs-flow"><div class="cs-step"><h3>JSON worlds</h3><p>Titles, phases, release dates, timeline order and characters for seven worlds, kept in one data file each.</p></div><div class="cs-step"><h3>Layout engine</h3><p>Mind maps, phase rings and timelines are computed from the data, then pushed apart so posters never overlap.</p></div><div class="cs-step"><h3>Canvas camera</h3><p>Pan, zoom and tilt are projected with a little perspective, with no 3D library.</p></div><div class="cs-step"><h3>TMDB API</h3><p>Posters, synopses, cast, trailers and where-to-watch buttons load live when a card opens.</p></div></div>
-
-    <p class="cs-nav-note">A general layout problem: overlapping posters. A deterministic pairwise separation pass keeps every poster’s position stable and repeatable across views.</p>
+    <h2>How it works</h2>
+    <div class="cs-steps"><div><h3>Data</h3><p>One JSON file per world holds titles, phases, release dates, timeline order and characters.</p></div><div><h3>Layout</h3><p>Mind maps, phase rings and timelines are worked out from that data.</p></div><div><h3>Camera</h3><p>Pan, zoom and tilt are projected onto the canvas with a bit of perspective.</p></div><div><h3>TMDB</h3><p>Posters, synopses, cast and trailers load when you open a card.</p></div></div>
+    <p class="cs-aside">The hardest bug was posters overlapping on the maps. I fixed it with a pass that pushes them apart the same way every time, so nothing jumps around when you switch views.</p>
   </div>
 </section>
 
-<section class="section reveal cs-notes">
+<section class="cs-section reveal">
+  <div class="wrap cs-split">
+    <h2>What is in it</h2>
+    <div class="cs-list"><div class="cs-item"><h3>Landing page</h3><p>A scroll-driven fly-through that opens into the archive, over a starfield that looks the same on every visit.</p></div><div class="cs-item"><h3>Seven worlds</h3><p>Each one has mind maps, phase rings, release and chronological timelines, a poster map and character journeys.</p></div><div class="cs-item"><h3>Film details</h3><p>Cards show a synopsis, cast, trailer and where to watch. Every view and card has its own link you can share.</p></div><div class="cs-item"><h3>Rendering</h3><p>All drawn by hand with HTML5 Canvas. No framework and no 3D library.</p></div></div>
+  </div>
   <div class="wrap">
-    <div class="section-head">
-      <div>
-        <h2>What went into it</h2>
-      </div>
-    </div>
-
-    <div class="cs-notes-grid"><div class="cs-note"><h3>Cinematic landing</h3><p>A 3D-style scroll fly-through opens into an animated archive, with a deterministic custom starfield and depth effects.</p></div><div class="cs-note"><h3>Multiple worlds and views</h3><p>Seven Marvel worlds explored through mind maps, phase rings, release and chronological timelines, poster maps and character journeys.</p></div><div class="cs-note"><h3>Film information</h3><p>TMDB supplies posters, synopses, cast, trailers and viewing options, and browser history powers shareable deep links.</p></div><div class="cs-note"><h3>Rendering techniques</h3><p>Framework-free JavaScript and HTML5 Canvas with camera projection, easing, responsive layouts and 2.5D tilt.</p></div></div>
-
-    <div class="cs-takeaway">
-      <span class="cs-takeaway-label">Takeaway</span>
-      <p>Hand-built a navigable cinematic world with reusable data models, responsive layouts and complex custom-rendered interaction.</p>
-    </div>
-
+    <p class="cs-closing">Everything on screen is drawn in code, including the depth and tilt.</p>
   </div>
 </section>
 
-<section class="section reveal cs-screens" id="screens">
+<section class="cs-section reveal" id="screens">
   <div class="wrap">
-    <div class="section-head">
-      <div>
-        <h2>Interface snapshots</h2>
-        <p class="section-sub">Select a screenshot to open it, then select it again to switch between fit-to-screen and full size.</p>
-      </div>
-    </div>
-
+    <h2>Screenshots</h2>
+    <p class="cs-hint">Click one to enlarge it.</p>
     <div class="cs-boards three">
       <figure class="cs-board">
-        <button type="button" class="cs-board-btn" data-lightbox="images/mcu-1.jpg" data-caption="The landing page" aria-label="Open screenshot: The landing page">
+        <button type="button" class="cs-board-btn" data-lightbox="images/mcu-1.jpg" data-caption="Landing page" aria-label="Open screenshot: Landing page">
           <img src="images/mcu-1.jpg" width="1600" height="957" loading="lazy" alt="MCU Archive landing screen with the Marvel logo on a starfield">
-          <span class="cs-zoom" aria-hidden="true">Enlarge</span>
         </button>
-        <figcaption>
-          <h3>The landing page</h3>
-          <p>A glowing Marvel logo opens a scroll-driven fly-through of every world, before the archive itself.</p>
-        </figcaption>
+        <figcaption><strong>Landing page.</strong> The Marvel logo opens a fly-through of every world.</figcaption>
       </figure>
 
       <figure class="cs-board">
-        <button type="button" class="cs-board-btn" data-lightbox="images/mcu-2.jpg" data-caption="The combined map" aria-label="Open screenshot: The combined map">
-          <img src="images/mcu-2.jpg" width="1198" height="955" loading="lazy" alt="MCU Archive complete map showing several colourful starburst mind maps">
-          <span class="cs-zoom" aria-hidden="true">Enlarge</span>
+        <button type="button" class="cs-board-btn" data-lightbox="images/mcu-2.jpg" data-caption="Complete map" aria-label="Open screenshot: Complete map">
+          <img src="images/mcu-2.jpg" width="1198" height="955" loading="lazy" alt="MCU Archive map with several colourful starburst mind maps">
         </button>
-        <figcaption>
-          <h3>The combined map</h3>
-          <p>Seven worlds on one canvas, each growing out of its own logo like a mind map being drawn.</p>
-        </figcaption>
+        <figcaption><strong>Complete map.</strong> All seven worlds on one canvas, each growing out of its own logo.</figcaption>
       </figure>
 
       <figure class="cs-board">
-        <button type="button" class="cs-board-btn" data-lightbox="images/mcu-3.jpg" data-caption="A world as a mind map" aria-label="Open screenshot: A world as a mind map">
-          <img src="images/mcu-3.jpg" width="1600" height="966" loading="lazy" alt="MCU Archive mind map with Marvel poster thumbnails along phase branches">
-          <span class="cs-zoom" aria-hidden="true">Enlarge</span>
+        <button type="button" class="cs-board-btn" data-lightbox="images/mcu-3.jpg" data-caption="One world as a mind map" aria-label="Open screenshot: One world as a mind map">
+          <img src="images/mcu-3.jpg" width="1600" height="966" loading="lazy" alt="MCU Archive mind map with poster thumbnails along the branches">
         </button>
-        <figcaption>
-          <h3>A world as a mind map</h3>
-          <p>Phases branch from the hub, titles branch from each phase, with the view panel on the left.</p>
-        </figcaption>
+        <figcaption><strong>One world as a mind map.</strong> Phases branch from the centre and titles branch from each phase.</figcaption>
       </figure>
     </div>
-
-    <div class="btn-row" style="margin-top:40px;">
-      <a href="work.html" class="btn btn-ghost">&larr; Back to all projects</a>
+    <div class="btn-row cs-end">
+      <a href="work.html" class="btn btn-ghost">&larr; All projects</a>
       <a href="mailto:sahanasriram19@gmail.com" class="btn btn-primary">Get in touch</a>
     </div>
   </div>

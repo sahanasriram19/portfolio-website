@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Study Buddy — UI/UX Case Study</title>
+<title>AI Study Buddy — Case Study</title>
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="manifest" href="/manifest.json">
-<meta name="description" content="AI Study Buddy: a mobile learning companion designed in Figma. Wireframes and interaction flows for study planning, focus sessions, AI help, practice and progress tracking.">
+<meta name="description" content="AI Study Buddy: Figma wireframes for a mobile study app.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
@@ -15,164 +15,81 @@
 
 <div id="navbar-placeholder"></div>
 
-<section class="cs-hero">
+<header class="cs-hero">
   <div class="wrap cs-hero-grid">
     <div>
       <a href="work.html" class="cs-back">&larr; All projects</a>
-      <div class="cs-eyebrow">UI/UX case study</div>
-      <h1>AI Study <span class="grad-text">Buddy</span></h1>
-      <p class="cs-lede">A mobile learning companion that brings study planning, focus sessions, AI help, practice and progress tracking into one app. These are the Figma wireframes and interaction flows behind it.</p>
-
-      <dl class="cs-meta">
-        <div><dt>Role</dt><dd>UI/UX designer</dd></div>
-        <div><dt>Tool</dt><dd>Figma</dd></div>
-        <div><dt>Platform</dt><dd>Mobile app</dd></div>
-        <div><dt>Deliverable</dt><dd>Wireframes and flows</dd></div>
-      </dl>
-
-      <div class="btn-row">
-        <a href="#screens" class="btn btn-primary">See the screens</a>
-        <!-- Add your Figma prototype link here when you have it:
-        <a href="YOUR-FIGMA-LINK" target="_blank" rel="noopener" class="btn btn-ghost">Open in Figma &#8599;</a> -->
-      </div>
+      <h1>AI Study Buddy</h1>
+      <p class="cs-lede">A mobile study app I designed in Figma. The wireframes cover planning tasks, focus sessions, AI help, practice and progress.</p>
+      <ul class="cs-facts"><li><span>Type</span>Concept and wireframes</li><li><span>Tool</span>Figma</li><li><span>Platform</span>Mobile</li><li><span>Role</span>UI/UX design</li></ul>
+      <!-- Add your Figma prototype link here when you have one:
+      <div class="btn-row"><a href="YOUR-FIGMA-LINK" target="_blank" rel="noopener" class="btn btn-primary">Open in Figma &#8599;</a></div> -->
     </div>
-
     <div class="cs-hero-visual">
-      <img src="images/ai-study-buddy.png" width="640" height="400" alt="Three AI Study Buddy screens: the home dashboard with a study streak, the focus timer, and a study kit with practice, flashcards, mock exam and summary options">
+      <img src="images/ai-study-buddy.png" width="640" height="400" alt="Three screens from the app: dashboard, focus timer and a study kit">
     </div>
+  </div>
+</header>
+
+<section class="cs-section reveal">
+  <div class="wrap">
+    <h2>How the app fits together</h2>
+    <div class="cs-steps"><div><h3>Plan</h3><p>Organise tasks, with an AI breakdown for big ones.</p></div><div><h3>Focus</h3><p>A timed focus session with app blocking, then a session summary.</p></div><div><h3>Practise</h3><p>Study kits with quizzes, flashcards and mock exams.</p></div><div><h3>Review</h3><p>Scores, statistics, achievements and leaderboards.</p></div></div>
+    <p class="cs-aside">A tab bar (Home, Tasks, Study, AI Help, Progress) sits across the main screens, so each step is one tap away.</p>
   </div>
 </section>
 
-<section class="section reveal cs-loop">
+<section class="cs-section reveal">
+  <div class="wrap cs-split">
+    <h2>What is in the designs</h2>
+    <div class="cs-list"><div class="cs-item"><h3>Study organisation</h3><p>Task screens, the AI task breakdown, focus timers, app blocking and session complete views.</p></div><div class="cs-item"><h3>Learning and AI tools</h3><p>Study kits, practice questions, flashcards, mock exams, AI chat, audio and image tools.</p></div><div class="cs-item"><h3>Progress and personalisation</h3><p>Score feedback, statistics, leaderboards, achievements and editable profile settings.</p></div><div class="cs-item"><h3>Empty, error and confirm states</h3><p>A login error, an empty study kit list, a form error, and dialogs before logging out, submitting an exam or discarding changes.</p></div></div>
+  </div>
   <div class="wrap">
-    <div class="section-head">
-      <div>
-        <h2>One study loop, four steps</h2>
-        <p class="section-sub">Every screen in the app belongs to one of these steps, and each step feeds the next.</p>
-      </div>
-    </div>
-
-    <div class="cs-flow">
-      <div class="cs-step">
-        <h3>Plan</h3>
-        <p>Organise tasks, with an AI breakdown that turns a big task into smaller ones.</p>
-      </div>
-      <div class="cs-step">
-        <h3>Focus</h3>
-        <p>Run a timed focus session with distraction controls, then see a session-complete summary.</p>
-      </div>
-      <div class="cs-step">
-        <h3>Practise</h3>
-        <p>Build study kits and test yourself with quizzes, flashcards and mock exams.</p>
-      </div>
-      <div class="cs-step">
-        <h3>Review</h3>
-        <p>Check scores, statistics, achievements and leaderboards, then plan the next round.</p>
-      </div>
-    </div>
-
-    <p class="cs-nav-note">A five-tab bar (Home, Tasks, Study, AI Help, Progress) runs across the main screens, so the loop stays one tap away from anywhere.</p>
+    <p class="cs-closing">I wanted the screens to cover what happens when things go wrong, not only the main path.</p>
   </div>
 </section>
 
-<section class="section reveal cs-notes">
+<section class="cs-section reveal" id="screens">
   <div class="wrap">
-    <div class="section-head">
-      <div>
-        <h2>What went into the design</h2>
-      </div>
-    </div>
-
-    <div class="cs-notes-grid">
-      <div class="cs-note">
-        <h3>Study organisation</h3>
-        <p>Task screens, AI task breakdown, focus timers, distraction controls and session-completion views.</p>
-      </div>
-      <div class="cs-note">
-        <h3>Learning and AI tools</h3>
-        <p>Study kits, practice questions, flashcards, mock exams, AI chat, and audio and image interactions.</p>
-      </div>
-      <div class="cs-note">
-        <h3>Progress and personalisation</h3>
-        <p>Score feedback, statistics, leaderboards, achievement screens and editable profile preferences.</p>
-      </div>
-      <div class="cs-note">
-        <h3>Empty, error and confirm states</h3>
-        <p>Designed beyond the happy path: a login error, an empty study-kit list, a form validation error, and confirmation dialogs before logging out, submitting an exam or discarding changes.</p>
-      </div>
-    </div>
-
-    <div class="cs-takeaway">
-      <span class="cs-takeaway-label">Takeaway</span>
-      <p>Translated a broad set of study and AI-assisted workflows into a coherent mobile UI/UX prototype.</p>
-    </div>
-
-  </div>
-</section>
-
-<section class="section reveal cs-screens" id="screens">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <h2>The screens</h2>
-        <p class="section-sub">Four Figma boards cover the whole app. Select a board to open it, then select the image again to switch between fit-to-screen and full size.</p>
-      </div>
-    </div>
-
+    <h2>Screenshots</h2>
+    <p class="cs-hint">Click one to enlarge it.</p>
     <div class="cs-boards">
       <figure class="cs-board">
-        <button type="button" class="cs-board-btn" data-lightbox="images/study-buddy-1.png" data-caption="Onboarding, focus and progress" aria-label="Open board: Onboarding, focus and progress">
-          <img src="images/study-buddy-1.png" width="879" height="966" loading="lazy" alt="Figma board of mobile wireframes: login and login error, dashboard, profile and app personalisation, logout confirmation, focus timer, blocked apps, session complete, statistics, leaderboards and achievements">
-          <span class="cs-zoom" aria-hidden="true">Enlarge</span>
+        <button type="button" class="cs-board-btn" data-lightbox="images/study-buddy-1.png" data-caption="Login, focus and progress" aria-label="Open screenshot: Login, focus and progress">
+          <img src="images/study-buddy-1.png" width="879" height="966" loading="lazy" alt="Figma board: login, dashboard, focus timer, statistics, leaderboards and achievements">
         </button>
-        <figcaption>
-          <h3>Onboarding, focus and progress</h3>
-          <p>Login (with an error state), a dashboard built around a study streak, profile and colour personalisation, the focus timer with blocked apps, and the statistics, leaderboard and achievement screens.</p>
-        </figcaption>
+        <figcaption><strong>Login, focus and progress.</strong> Login with an error state, the dashboard, profile settings, the focus timer, statistics, leaderboards and achievements.</figcaption>
       </figure>
 
       <figure class="cs-board">
-        <button type="button" class="cs-board-btn" data-lightbox="images/study-buddy-2.png" data-caption="AI assistance and tasks" aria-label="Open board: AI assistance and tasks">
-          <img src="images/study-buddy-2.png" width="876" height="809" loading="lazy" alt="Figma board of mobile wireframes: AI chatbot with past chats, new project form, chat conversations, audio chatbot, picture generator, code assistant, task list, task details, edit task and AI task breakdown">
-          <span class="cs-zoom" aria-hidden="true">Enlarge</span>
+        <button type="button" class="cs-board-btn" data-lightbox="images/study-buddy-2.png" data-caption="AI help and tasks" aria-label="Open screenshot: AI help and tasks">
+          <img src="images/study-buddy-2.png" width="876" height="809" loading="lazy" alt="Figma board: AI chatbot and task screens">
         </button>
-        <figcaption>
-          <h3>AI assistance and tasks</h3>
-          <p>An AI chatbot with past chats, projects, audio and image tools, alongside a task list with progress rings and an AI breakdown for each task.</p>
-        </figcaption>
+        <figcaption><strong>AI help and tasks.</strong> The AI chatbot with past chats, audio and image tools, plus the task list and AI breakdown.</figcaption>
       </figure>
 
       <figure class="cs-board">
-        <button type="button" class="cs-board-btn" data-lightbox="images/study-buddy-3.png" data-caption="Study kits and practice" aria-label="Open board: Study kits and practice">
-          <img src="images/study-buddy-3.png" width="877" height="938" loading="lazy" alt="Figma board of mobile wireframes: study kit list and empty state, create study kit form with validation error, study kit view, and multiple-choice and short-answer practice questions with correct and incorrect feedback">
-          <span class="cs-zoom" aria-hidden="true">Enlarge</span>
+        <button type="button" class="cs-board-btn" data-lightbox="images/study-buddy-3.png" data-caption="Study kits and practice" aria-label="Open screenshot: Study kits and practice">
+          <img src="images/study-buddy-3.png" width="877" height="938" loading="lazy" alt="Figma board: study kits and practice questions">
         </button>
-        <figcaption>
-          <h3>Study kits and practice</h3>
-          <p>Create a kit from your own materials, then practise with multiple-choice and short-answer questions that show correct and incorrect feedback.</p>
-        </figcaption>
+        <figcaption><strong>Study kits and practice.</strong> Create a kit, then practise with multiple choice and short answer questions.</figcaption>
       </figure>
 
       <figure class="cs-board">
-        <button type="button" class="cs-board-btn" data-lightbox="images/study-buddy-4.png" data-caption="Flashcards, mock exams and summaries" aria-label="Open board: Flashcards, mock exams and summaries">
-          <img src="images/study-buddy-4.png" width="889" height="970" loading="lazy" alt="Figma board of mobile wireframes: flashcards with recall rating, mock exam setup, timed exam, submit confirmation, score with review mistakes, editable summary and discard changes dialog">
-          <span class="cs-zoom" aria-hidden="true">Enlarge</span>
+        <button type="button" class="cs-board-btn" data-lightbox="images/study-buddy-4.png" data-caption="Flashcards, exams, summaries" aria-label="Open screenshot: Flashcards, exams, summaries">
+          <img src="images/study-buddy-4.png" width="889" height="970" loading="lazy" alt="Figma board: flashcards, mock exam and summaries">
         </button>
-        <figcaption>
-          <h3>Flashcards, mock exams and summaries</h3>
-          <p>Flashcards rated by recall, a configurable timed mock exam, a score screen that links to the mistakes, and editable study summaries.</p>
-        </figcaption>
+        <figcaption><strong>Flashcards, exams, summaries.</strong> Flashcards, a timed mock exam, the score screen and editable summaries.</figcaption>
       </figure>
     </div>
-
-    <div class="btn-row" style="margin-top:40px;">
-      <a href="work.html" class="btn btn-ghost">&larr; Back to all projects</a>
+    <div class="btn-row cs-end">
+      <a href="work.html" class="btn btn-ghost">&larr; All projects</a>
       <a href="mailto:sahanasriram19@gmail.com" class="btn btn-primary">Get in touch</a>
     </div>
   </div>
 </section>
 
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Screen preview" hidden>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot preview" hidden>
   <button type="button" class="lightbox-close" aria-label="Close preview">&times;</button>
   <div class="lightbox-stage"><img id="lightboxImg" alt=""></div>
   <p class="lightbox-caption" id="lightboxCap"></p>
