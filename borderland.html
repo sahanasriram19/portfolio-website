@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Borderland — Case Study</title>
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="description" content="Borderland: an Alice in Borderland themed wellness challenge game with progression, a REST API and team battles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-parent="work.html">
+
+<div id="navbar-placeholder"></div>
+
+<section class="cs-hero">
+  <div class="wrap cs-hero-grid">
+    <div>
+      <a href="work.html" class="cs-back">&larr; All projects</a>
+      <div class="cs-eyebrow">Backend and game design project</div>
+      <h1><span class="grad-text">Borderland</span></h1>
+      <p class="cs-lede">A wellness challenge game inspired by Alice in Borderland. Real-life challenges earn points, points unlock characters and shop items, and groups compete in matches decided by their combined inventory power.</p>
+
+      <dl class="cs-meta"><div><dt>Type</dt><dd>Coursework project</dd></div><div><dt>Stack</dt><dd>Node.js, Express, MySQL</dd></div><div><dt>Focus</dt><dd>REST API, game logic</dd></div><div><dt>Status</dt><dd>Live</dd></div></dl>
+
+      <div class="btn-row">
+        <a href="https://alice-in-borderland-bed.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary">Live demo &#8599;</a>
+        <a href="https://github.com/sahanasriram19/alice-in-borderland" target="_blank" rel="noopener" class="btn btn-ghost">GitHub &#8599;</a>
+      </div>
+    </div>
+
+    <div class="cs-hero-visual">
+      <img src="images/borderland-1.jpg" width="1600" height="900" alt="Borderland character profiles page with a character list and stat bars">
+    </div>
+  </div>
+</section>
+
+<section class="section reveal cs-loop">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <h2>The game loop</h2>
+        <p class="section-sub">Points can only be earned through real-world challenges, and everything else in the game is built on them.</p>
+      </div>
+    </div>
+
+    <div class="cs-flow cs-flow-5"><div class="cs-step"><h3>Complete a challenge</h3><p>Pick a wellness challenge, such as getting 7 hours of sleep, and mark it done.</p></div><div class="cs-step"><h3>Earn points</h3><p>Verified completions award points. Nothing else in the game does.</p></div><div class="cs-step"><h3>Unlock characters</h3><p>Nine characters, from Chota to Mira, unlock at point thresholds.</p></div><div class="cs-step"><h3>Buy shop items</h3><p>Spend points on items that each carry a power value.</p></div><div class="cs-step"><h3>Compete in groups</h3><p>Twelve themed groups battle in matches scored by combined inventory power.</p></div></div>
+
+    <p class="cs-nav-note">Match scoring is a short pipeline: fetch the match and its groups, compute each side’s inventory power, compare the two, then resolve the match and save the outcome.</p>
+  </div>
+</section>
+
+<section class="section reveal cs-screens" id="screens">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <h2>Interface snapshots</h2>
+        <p class="section-sub">Select a screenshot to open it, then select it again to switch between fit-to-screen and full size.</p>
+      </div>
+    </div>
+
+    <div class="cs-boards">
+      <figure class="cs-board">
+        <button type="button" class="cs-board-btn" data-lightbox="images/borderland-1.jpg" data-caption="Character profiles" aria-label="Open screenshot: Character profiles">
+          <img src="images/borderland-1.jpg" width="1600" height="900" loading="lazy" alt="Borderland character profiles page with a character list and stat bars">
+          <span class="cs-zoom" aria-hidden="true">Enlarge</span>
+        </button>
+        <figcaption>
+          <h3>Character profiles</h3>
+          <p>A character roster with stats and a level progress panel, themed after the show.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="cs-board">
+        <button type="button" class="cs-board-btn" data-lightbox="images/borderland-2.jpg" data-caption="Player profile and shop" aria-label="Open screenshot: Player profile and shop">
+          <img src="images/borderland-2.jpg" width="1600" height="900" loading="lazy" alt="Borderland player profile beside a list of unlockable shop items">
+          <span class="cs-zoom" aria-hidden="true">Enlarge</span>
+        </button>
+        <figcaption>
+          <h3>Player profile and shop</h3>
+          <p>Your profile, current character and points, next to the item shop.</p>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal cs-notes">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <h2>What went into it</h2>
+      </div>
+    </div>
+
+    <div class="cs-notes-grid"><div class="cs-note"><h3>Alice in Borderland theme</h3><p>A challenge-based game with competition and unlockable rewards, styled after the show.</p></div><div class="cs-note"><h3>REST API design</h3><p>Users, challenges, completions, profiles, groups, matches, shop, inventory and leaderboards each have their own routes and models.</p></div><div class="cs-note"><h3>Rules and security</h3><p>JWT and bcrypt protect accounts, and verified challenge completion is the only way to earn points.</p></div><div class="cs-note"><h3>Modular match logic</h3><p>Single-purpose middleware calculates team inventory strength, compares outcomes and records the result.</p></div></div>
+
+    <div class="cs-takeaway">
+      <span class="cs-takeaway-label">Takeaway</span>
+      <p>A structured game backend with clear progression, security, resource ownership and testable scoring logic.</p>
+    </div>
+
+    <div class="btn-row" style="margin-top:34px;">
+      <a href="work.html" class="btn btn-ghost">&larr; Back to all projects</a>
+      <a href="mailto:sahanasriram19@gmail.com" class="btn btn-primary">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot preview" hidden>
+  <button type="button" class="lightbox-close" aria-label="Close preview">&times;</button>
+  <div class="lightbox-stage"><img id="lightboxImg" alt=""></div>
+  <p class="lightbox-caption" id="lightboxCap"></p>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="index.html"><span class="a">SA</span><span class="b">HANA</span></a>
+        <p>Building technology with creativity and curiosity.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html">Music</a>
+        <a href="work.html">Projects</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect With Me</h4>
+        <span>sahanasriram19@gmail.com</span>
+        <span>Singapore</span>
+      </div>
+      <div class="footer-cta">
+        <h4 style="margin-bottom:8px;">Let's Connect</h4>
+        <p>I'm open to opportunities and collaborations.</p>
+        <a href="mailto:sahanasriram19@gmail.com" class="btn btn-primary">Get In Touch</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Sahana Sriram. Built with passion.</span>
+      <div class="footer-social">
+        <a href="https://github.com/sahanasriram19" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+        <a href="https://www.linkedin.com/in/sahanasriram19" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="mailto:sahanasriram19@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 6-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" aria-label="Back to top">↑</button>
+<script src="js/script.js"></script>
+</body>
+</html>
