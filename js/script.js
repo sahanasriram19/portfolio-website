@@ -111,6 +111,23 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
+  /* ---------- Home page project carousel ---------- */
+  const track = document.querySelector('.project-grid.compact');
+  if (track && track.children.length > 1) {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'carousel';
+    track.parentNode.insertBefore(wrapper, track);
+    wrapper.appendChild(track);
+    // a second copy of the cards so the loop has no gap
+    Array.from(track.children).forEach(card => {
+      const copy = card.cloneNode(true);
+      copy.setAttribute('aria-hidden', 'true');
+      copy.setAttribute('data-clone', '');
+      copy.querySelectorAll('a,button').forEach(el => el.setAttribute('tabindex', '-1'));
+      track.appendChild(copy);
+    });
+  }
+
   /* ---------- Scroll reveal ---------- */
   const revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && !prefersReducedMotion) {

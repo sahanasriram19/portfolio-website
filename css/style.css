@@ -548,3 +548,19 @@ a:focus-visible, button:focus-visible{
 .contact-form .btn{margin-top:22px;}
 .form-note{margin-top:12px;font-size:0.82rem;color:var(--text-mute);}
 @media (max-width:860px){.contact-grid{grid-template-columns:1fr;gap:40px;}.contact-list dt{flex-basis:96px;}}
+
+/* home page project carousel */
+.carousel{overflow:hidden;padding:10px 0;margin:-10px 0;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);}
+.carousel .project-grid.compact{display:flex;gap:0;width:max-content;animation:carousel-scroll 55s linear infinite;}
+.carousel .project-card-sm{flex:0 0 380px;margin-right:22px;}
+.carousel:hover .project-grid.compact,
+.carousel:focus-within .project-grid.compact{animation-play-state:paused;}
+@keyframes carousel-scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+@media (max-width:600px){.carousel .project-card-sm{flex-basis:300px;}}
+@media (prefers-reduced-motion: reduce){
+  .carousel{overflow-x:auto;-webkit-mask-image:none;mask-image:none;}
+  .carousel .project-grid.compact{animation:none;}
+  .carousel [data-clone]{display:none;}
+}
