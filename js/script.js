@@ -88,6 +88,29 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
+  /* ---------- Contact form: opens the visitor's email app ---------- */
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    const note = document.getElementById('formNote');
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const f = contactForm.elements;
+      const name = f.name.value.trim();
+      const email = f.email.value.trim();
+      const message = f.message.value.trim();
+      let ok = true;
+      [f.name, f.email, f.message].forEach(el => el.classList.remove('invalid'));
+      if (!name) { f.name.classList.add('invalid'); ok = false; }
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { f.email.classList.add('invalid'); ok = false; }
+      if (!message) { f.message.classList.add('invalid'); ok = false; }
+      if (!ok) { note.textContent = 'Please fill in your name, a valid email and a message.'; return; }
+      const subject = f.subject.value.trim() || 'Message from your portfolio';
+      const body = message + '\n\n' + name + '\n' + email;
+      note.textContent = 'Opening your email app. If nothing opens, email sahanasriram19@gmail.com directly.';
+      window.location.href = 'mailto:sahanasriram19@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    });
+  }
+
   /* ---------- Scroll reveal ---------- */
   const revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && !prefersReducedMotion) {
