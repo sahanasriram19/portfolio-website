@@ -214,7 +214,7 @@ nav .wrap{
 
 /* ---------- Section headers ---------- */
 .section{padding:70px 0;}
-.section.alt-bg{background:linear-gradient(180deg,#4A22A0 0%,#321470 100%);border-top:1px solid rgba(196,181,253,0.45);border-bottom:1px solid rgba(196,181,253,0.45);}
+.section.alt-bg{background:linear-gradient(180deg,#8E63F0 0%,#6D40D6 100%);border-top:1px solid rgba(221,208,255,0.6);border-bottom:1px solid rgba(221,208,255,0.6);}
 .section-head{
   display:flex;justify-content:space-between;align-items:flex-end;
   margin-bottom:36px;flex-wrap:wrap;gap:16px;
@@ -567,4 +567,4 @@ a:focus-visible, button:focus-visible{
 }
 
 .section.alt-bg .view-all{color:#fff;}
-.section.alt-bg .view-all:hover{color:#8056f5;}
+.section.alt-bg .view-all:hover{color:#E9E1FF;}
