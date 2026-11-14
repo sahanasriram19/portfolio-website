@@ -214,7 +214,7 @@ nav .wrap{
 
 /* ---------- Section headers ---------- */
 .section{padding:70px 0;}
-.section.alt-bg{padding:90px 0;border:0;background:radial-gradient(ellipse 80% 70% at 50% 50%, rgba(190,165,255,0.5), transparent 75%),linear-gradient(180deg,#0A0A14 0%,#4A29A8 20%,#7A4FE6 50%,#4A29A8 80%,#06060D 100%);}
+.section.alt-bg{padding:90px 0;border:0;background:radial-gradient(ellipse 80% 70% at 50% 50%, rgba(139,92,246,0.22), transparent 75%),linear-gradient(180deg,#0A0A14 0%,#1B1245 22%,#2A1B6B 50%,#1B1245 78%,#06060D 100%);}
 .section-head{
   display:flex;justify-content:space-between;align-items:flex-end;
   margin-bottom:36px;flex-wrap:wrap;gap:16px;
