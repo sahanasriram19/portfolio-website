@@ -121,6 +121,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     }));
   }
 
+  /* ---------- Live design wall: duplicate items for a seamless loop ---------- */
+  document.querySelectorAll('.live-track').forEach(track => {
+    const originals = Array.from(track.children);
+    originals.forEach(orig => {
+      const clone = orig.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      const btn = clone.querySelector('button');
+      btn.tabIndex = -1;
+      btn.removeAttribute('data-lightbox');
+      btn.addEventListener('click', () => orig.querySelector('button').click());
+      track.appendChild(clone);
+    });
+  });
+
   /* ---------- Mosaic layout (designs page) ---------- */
   const mosaic = document.querySelector('[data-mosaic]');
   if (mosaic) {
