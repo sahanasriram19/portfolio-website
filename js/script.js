@@ -135,6 +135,38 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   });
 
+  /* ---------- Mosaic layout (designs page) ---------- */
+  const mosaic = document.querySelector('[data-mosaic]');
+  if (mosaic) {
+    const GAP = 12;
+    const layout = () => {
+      const W = mosaic.clientWidth;
+      const target = W < 560 ? 170 : W < 900 ? 230 : 300;
+      const items = Array.from(mosaic.querySelectorAll('.design-item')).filter(i => !i.hidden);
+      let row = [], sum = 0;
+      const flush = (h) => {
+        row.forEach(({ el, r }) => { el.style.width = (r * h) + 'px'; el.style.height = h + 'px'; });
+        row = []; sum = 0;
+      };
+      items.forEach(el => {
+        const img = el.querySelector('img');
+        const r = img.getAttribute('width') / img.getAttribute('height');
+        row.push({ el, r }); sum += r;
+        const h = (W - GAP * (row.length - 1) - 0.5) / sum;
+        if (h <= target) flush(h);
+      });
+      if (row.length) {
+        const h = (W - GAP * (row.length - 1) - 0.5) / sum;
+        flush(Math.min(h, target * 1.1)); // do not blow up a short last row
+      }
+    };
+    mosaic.classList.add('mosaic-on');
+    layout();
+    let t;
+    window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(layout, 80); });
+    document.querySelectorAll('#designFilters .filter-chip').forEach(chip => chip.addEventListener('click', () => setTimeout(layout, 0)));
+  }
+
   /* ---------- Contact form: opens the visitor's email app ---------- */
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {

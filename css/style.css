@@ -615,3 +615,9 @@ a:focus-visible, button:focus-visible{
 @media (max-width:900px){.live-wall{grid-template-columns:repeat(3,1fr);}.live-col.c4{display:none;}}
 @media (max-width:640px){.live-wall{grid-template-columns:repeat(2,1fr);gap:10px;height:480px;}.live-col.c3{display:none;}.live-item{margin-bottom:10px;}}
 @media (prefers-reduced-motion:reduce){.live-wall{height:auto;overflow:visible;-webkit-mask-image:none;mask-image:none;}.live-col{overflow:visible;}.live-track{animation:none;}.live-item[aria-hidden]{display:none;}}
+
+/* Mosaic (designs page): rows of equal height, widths follow each design's proportions */
+.design-wall.mosaic-on{column-count:auto;display:flex;flex-wrap:wrap;gap:12px;}
+.design-wall.mosaic-on .design-item{margin:0;flex:none;}
+.design-wall.mosaic-on .design-btn{height:100%;}
+.design-wall.mosaic-on .design-btn img{width:100%;height:100%;object-fit:cover;}
