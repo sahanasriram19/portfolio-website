@@ -121,8 +121,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     }));
   }
 
-  /* ---------- Moving design rows: duplicate items for a seamless loop ---------- */
-  document.querySelectorAll('.marquee-track').forEach(track => {
+  /* ---------- Live design wall: duplicate items for a seamless loop ---------- */
+  document.querySelectorAll('.live-track').forEach(track => {
     const originals = Array.from(track.children);
     originals.forEach(orig => {
       const clone = orig.cloneNode(true);
