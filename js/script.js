@@ -47,20 +47,32 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   });
 
-  /* ---------- Screen lightbox (case study page) ---------- */
+  /* ---------- Image lightbox (case studies and design gallery) ---------- */
   const lightbox = document.getElementById('lightbox');
   if (lightbox) {
     const lbImg = document.getElementById('lightboxImg');
     const lbCap = document.getElementById('lightboxCap');
     const lbClose = lightbox.querySelector('.lightbox-close');
-    let lastTrigger = null;
+    const lbPrev = lightbox.querySelector('.lightbox-nav.prev');
+    const lbNext = lightbox.querySelector('.lightbox-nav.next');
+    const triggers = Array.from(document.querySelectorAll('[data-lightbox]'));
+    let current = -1;
 
-    const openLb = (btn) => {
-      lastTrigger = btn;
+    // only the images that are currently visible can be stepped through
+    const visibleTriggers = () => triggers.filter(t => !t.closest('[hidden]'));
+
+    const show = (btn) => {
+      current = triggers.indexOf(btn);
       lbImg.src = btn.dataset.lightbox;
       lbImg.alt = btn.querySelector('img') ? btn.querySelector('img').alt : '';
       lbCap.textContent = btn.dataset.caption || '';
       lightbox.classList.remove('zoomed');
+      const many = visibleTriggers().length > 1;
+      if (lbPrev) lbPrev.hidden = !many;
+      if (lbNext) lbNext.hidden = !many;
+    };
+    const openLb = (btn) => {
+      show(btn);
       lightbox.hidden = false;
       document.body.style.overflow = 'hidden';
       lbClose.focus();
@@ -69,23 +81,44 @@ document.addEventListener('DOMContentLoaded', async () => {
       lightbox.hidden = true;
       lbImg.removeAttribute('src');
       document.body.style.overflow = '';
-      if (lastTrigger) lastTrigger.focus();
+      if (triggers[current]) triggers[current].focus();
+    };
+    const step = (dir) => {
+      const list = visibleTriggers();
+      if (list.length < 2) return;
+      const i = list.indexOf(triggers[current]);
+      show(list[(i + dir + list.length) % list.length]);
     };
 
-    document.querySelectorAll('[data-lightbox]').forEach(btn => {
-      btn.addEventListener('click', () => openLb(btn));
-    });
+    triggers.forEach(btn => btn.addEventListener('click', () => openLb(btn)));
     lbImg.addEventListener('click', (e) => {
       e.stopPropagation();
       lightbox.classList.toggle('zoomed');
     });
     lbClose.addEventListener('click', closeLb);
+    if (lbPrev) lbPrev.addEventListener('click', (e) => { e.stopPropagation(); step(-1); });
+    if (lbNext) lbNext.addEventListener('click', (e) => { e.stopPropagation(); step(1); });
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox || e.target.classList.contains('lightbox-stage')) closeLb();
     });
     document.addEventListener('keydown', (e) => {
-      if (!lightbox.hidden && e.key === 'Escape') closeLb();
+      if (lightbox.hidden) return;
+      if (e.key === 'Escape') closeLb();
+      if (e.key === 'ArrowLeft') step(-1);
+      if (e.key === 'ArrowRight') step(1);
     });
+  }
+
+  /* ---------- Design gallery filters ---------- */
+  const filterRow = document.getElementById('designFilters');
+  if (filterRow) {
+    const chips = filterRow.querySelectorAll('.filter-chip');
+    const items = document.querySelectorAll('#designWall .design-item');
+    chips.forEach(chip => chip.addEventListener('click', () => {
+      chips.forEach(c => c.classList.toggle('active', c === chip));
+      const f = chip.dataset.filter;
+      items.forEach(it => { it.hidden = !(f === 'all' || it.dataset.cat === f); });
+    }));
   }
 
   /* ---------- Contact form: opens the visitor's email app ---------- */
